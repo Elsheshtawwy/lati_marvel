@@ -16,11 +16,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context,
-          CupertinoPageRoute(
-              builder: (context) =>
-                  const HomeScreen(title: "assets/InvertedLogo.png")));
+      Navigator.pushReplacement(context,
+          CupertinoPageRoute(builder: (context) => const HomeScreen()));
     });
     super.initState();
   }

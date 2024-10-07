@@ -1,45 +1,46 @@
 import 'dart:convert';
 
 class MoviesModel {
-    int id;
-    String title;
-    DateTime releaseDate;
-    String boxOffice;
-    int duration;
-    String overview;
-    String coverUrl;
-    String trailerUrl;
-    String directedBy;
-    int phase;
-    String saga;
-    int chronology;
-    int postCreditScenes;
-    String imdbId;
-    DateTime updatedAt;
+  int id;
+  String title;
+  DateTime releaseDate;
+  String boxOffice;
+  int duration;
+  String? overview;
+  String coverUrl;
+  String? trailerUrl;
+  String directedBy;
+  int phase;
+  String saga;
+  int chronology;
+  int postCreditScenes;
+  String imdbId;
+  DateTime updatedAt;
 
-    MoviesModel({
-        required this.id,
-        required this.title,
-        required this.releaseDate,
-        required this.boxOffice,
-        required this.duration,
-        required this.overview,
-        required this.coverUrl,
-        required this.trailerUrl,
-        required this.directedBy,
-        required this.phase,
-        required this.saga,
-        required this.chronology,
-        required this.postCreditScenes,
-        required this.imdbId,
-        required this.updatedAt,
-    });
+  MoviesModel({
+    required this.id,
+    required this.title,
+    required this.releaseDate,
+    required this.boxOffice,
+    required this.duration,
+    this.overview,
+    required this.coverUrl,
+    this.trailerUrl,
+    required this.directedBy,
+    required this.phase,
+    required this.saga,
+    required this.chronology,
+    required this.postCreditScenes,
+    required this.imdbId,
+    required this.updatedAt,
+  });
 
-    factory MoviesModel.fromRawJson(String str) => MoviesModel.fromJson(json.decode(str));
+  factory MoviesModel.fromRawJson(String str) =>
+      MoviesModel.fromJson(json.decode(str));
 
-    String toRawJson() => json.encode(toJson());
+  String toRawJson() => json.encode(toJson());
 
-    factory MoviesModel.fromJson(Map<String, dynamic> json) => MoviesModel(
+  factory MoviesModel.fromJson(Map<String, dynamic> json) => MoviesModel(
         id: json["id"],
         title: json["title"],
         releaseDate: DateTime.parse(json["release_date"]),
@@ -55,12 +56,13 @@ class MoviesModel {
         postCreditScenes: json["post_credit_scenes"],
         imdbId: json["imdb_id"],
         updatedAt: DateTime.parse(json["updated_at"]),
-    );
+      );
 
-    Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toJson() => {
         "id": id,
         "title": title,
-        "release_date": "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
+        "release_date":
+            "${releaseDate.year.toString().padLeft(4, '0')}-${releaseDate.month.toString().padLeft(2, '0')}-${releaseDate.day.toString().padLeft(2, '0')}",
         "box_office": boxOffice,
         "duration": duration,
         "overview": overview,
@@ -73,5 +75,5 @@ class MoviesModel {
         "post_credit_scenes": postCreditScenes,
         "imdb_id": imdbId,
         "updated_at": updatedAt.toIso8601String(),
-    };
+      };
 }

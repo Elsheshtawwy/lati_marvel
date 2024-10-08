@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lati_marvel/helpers/functions_helpes.dart';
-import 'package:lati_marvel/screens/home_screen.dart';
+import 'package:lati_marvel/screens/authentication%20Screens/login_screen.dart';
+import 'package:lati_marvel/screens/authentication%20Screens/register_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(const Duration(seconds: 3), () {
       Navigator.pushReplacement(context,
-          CupertinoPageRoute(builder: (context) => const HomeScreen()));
+          CupertinoPageRoute(builder: (context) => const RegisterScreen()));
     });
     super.initState();
   }
